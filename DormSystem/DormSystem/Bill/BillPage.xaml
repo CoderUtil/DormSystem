@@ -1,0 +1,67 @@
+﻿<Page
+    x:Class="DormSystem.BillPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:DormSystem"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:data="using:DormSystem.Models"
+    xmlns:conv="using:DormSystem.Converters"
+    mc:Ignorable="d">
+
+    <UserControl.Resources>
+        <conv:AddRemoveConverter x:Key="Converter1"/>
+    </UserControl.Resources>
+
+    <ScrollViewer Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" ScrollViewer.VerticalScrollBarVisibility="Visible">
+        <Grid Name="te" HorizontalAlignment="Center" Width="500">
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="48"/>
+                <RowDefinition Height="30"/>
+                <RowDefinition Height="66"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Grid Grid.Row="0" Background="LightBlue" Width="500">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <TextBlock Grid.Column="0" HorizontalAlignment="Left" Text="宿舍账单" FontWeight="Bold" FontSize="28" Height="48" Margin="30 0 0 0" Width="120"/>
+                <TextBox x:Name="SearchBox" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="30 0 0 0" Width="110"/>
+                <Button x:Name="Search" Content="Search" Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Center" Height="31" Click="Search_Click" Width="70" Margin="0 0 20 0"/>
+
+            </Grid>
+            <TextBlock Text="宿舍费余额" Grid.Row="1" HorizontalAlignment="Center"/>
+            <TextBlock x:Name="Balance" Text="" Grid.Row="2" HorizontalAlignment="Center" FontSize="48" FontFamily="Segoe Print"/>
+            <ListView Name="list" ItemsSource="{x:Bind ViewModel.Items}" Grid.Row="3" IsItemClickEnabled="True" HorizontalAlignment="Left" HorizontalContentAlignment="Left" ItemClick="list_ItemClick" Width="500">
+
+                <ListView.ItemTemplate>
+                    <DataTemplate x:DataType="data:BillItem">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="Auto" MinWidth="1"/>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <AppBarButton Grid.Column="1" IsCompact="True" HorizontalAlignment="Right" Icon="{x:Bind IsInCome,Converter={StaticResource Converter1}, Mode=OneWay}" Margin="0,25,0,15" VerticalAlignment="Center" Height="60" Width="52"/>
+                            <TextBlock Text="{x:Bind Value}" Grid.Column="2" Margin="0,38" TextWrapping="Wrap" FontSize="18" Width="72" HorizontalAlignment="Left"/>
+                            <TextBlock Text="{x:Bind Detail}" Grid.Column="0" Margin="0,38" TextWrapping="Wrap" FontSize="18" Width="72" HorizontalAlignment="Left"/>
+                            <TextBlock Text="{x:Bind Date}" Grid.Column="3" Margin="0,38,-52.667,38" FontSize="18" Width="150" HorizontalAlignment="Right"/>
+                        </Grid>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </Grid>
+
+    </ScrollViewer>
+    <Page.BottomAppBar>
+        <CommandBar>
+            <AppBarButton x:Name="AddAppBarButton" Icon="Add" Label="Add" Click="AddAppBarButton_Click"/>
+            <AppBarButton x:Name="DeleteAppBarButton" Icon="Delete" Label="Delete" Click="DeleteAppBarButton_Click"/>
+            <AppBarButton x:Name="ShareBarButton" Icon="Share" Label="Share" Click="ShareBarButton_Click"/>
+        </CommandBar>
+    </Page.BottomAppBar>
+</Page>

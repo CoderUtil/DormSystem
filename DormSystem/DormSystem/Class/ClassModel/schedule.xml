@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<schedule>
+  <Monday>
+    <class name="机器人" index="1" startTime="08:00" endTime="09:40" teacher="王" room="D501"></class>
+    <class name="高等数学" index="2" startTime="10:00" endTime="11:40" teacher="张" room="C504"></class>
+  </Monday>
+
+  <Tuesday>
+    <class name="计组" index="1" startTime="10:00" endTime="11:40" teacher="周" room="C402"></class>
+    <class name="计组实验" index="2" startTime="14:20" endTime="17:05" teacher="何" room="C102"></class>
+  </Tuesday>
+
+  <Wednesday>
+    <class name="体育" index="1" startTime="08:00" endTime="09:40" teacher="张" room="体育馆"></class>
+    <class name="毛概" index="2" startTime="16:20" endTime="18:00" teacher="李" room="B104"></class>
+  </Wednesday>
+
+  <Thursday>
+    <class name="英语" index="1" startTime="08:00" endTime="09:40" teacher="赖" room="E503"></class>
+    <class name="现操" index="2" startTime="14:20" endTime="18:00" teacher="郑" room="B202"></class>
+  </Thursday>
+
+  <Friday>
+    <class name="计组" index="1" startTime="10:00" endTime="11:40" teacher="周" room="C402"></class>
+    <class name="亚欧" index="2" startTime="09:00" endTime="09:45" teacher="李四" room="A306"></class>
+  </Friday>
+
+  <Saturday>
+    <class name="玩faeria" index="1" startTime="08:00" endTime="12:00" teacher="ttgg" room="宿舍"></class>
+    <class name="玩激战2" index="2" startTime="13:00" endTime="18:00" teacher="金琨" room="宿舍"></class>
+  </Saturday>
+
+  <Sunday>
+    <class name="玩faeria" index="1" startTime="08:00" endTime="12:00" teacher="ttgg" room="宿舍"></class>
+    <class name="玩激战2" index="2" startTime="13:00" endTime="18:00" teacher="金琨" room="宿舍"></class>
+  </Sunday>
+</schedule>
+
